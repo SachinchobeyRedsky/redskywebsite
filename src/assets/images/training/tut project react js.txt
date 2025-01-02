@@ -1,0 +1,50 @@
+react js project tutrial
+
+1.  https://www.interviewbit.com/blog/react-projects/
+
+2.  https://www.crio.do/blog/top-5-javascript-projects-reactjs/
+
+3.  https://mindmajix.com/react-js-tutorial
+
+
+
+reactQuill
+
+1. https://codeat21.com/react-quill-powerful-rich-text-editor/
+
+
+api next js
+
+2.  http://www.topcoder.com/thrive/articles/implementing-authentication-in-next-js?utm_source=thrive&utm_campaign=thrive-feed&utm_medium=rss-feed
+
+
+quiz project with next js
+
+1. https://www.freecodecamp.org/news/how-to-build-a-quizapp-using-nextjs-chakra-ui-and-firebase/
+
+
+Rewirte rule apche in host url 
+
+1.  https://www.digitalocean.com/community/tutorials/how-to-rewrite-urls-with-mod_rewrite-for-apache-on-ubuntu-18-04#example-2-adding-conditions-with-logic-using-rewriteconds
+
+
+
+1>...... search title blog
+ans... https://blog.logrocket.com/create-search-bar-react-from-scratch/
+
+
+
+interview preperations
+
+
+https://www.simplilearn.com/tutorials/reactjs-tutorial/react-with-redux
+
+
+
+
+websites for react learn
+
+11..... https://phrase.com/blog/posts/top-10-react-blogs-you-need-to-follow-now/sss
+
+
+
