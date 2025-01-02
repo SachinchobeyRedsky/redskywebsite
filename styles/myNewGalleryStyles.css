@@ -1,0 +1,11 @@
+.carousel.carousel-slider {
+    overflow: inherit;
+}
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow{
+    opacity: 1 !important;
+}
+
+
+.carousel.carousel-slider .control-arrow {
+    padding: 15px;
+  }

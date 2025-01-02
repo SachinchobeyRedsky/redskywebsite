@@ -1,0 +1,66 @@
+@mixin white-gradient {
+}
+
+$animationSpeed: 18s;
+
+// Animation
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-280px * 10));
+  }
+}
+
+// Styling
+.sliderr {
+  box-shadow: 0 20px 40px -15px #10111416;
+  height: 220px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    @include white-gradient;
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  .slidee-track {
+    animation: scroll $animationSpeed linear infinite;
+    display: flex;
+    width: calc(280px * 9);
+  }
+
+  .slidee {
+    height: 100px;
+    width: 280px;
+    margin-right: 1rem;
+  }
+}
+
+.prev {
+  background-color: #faae12;
+}
+
+
+
+
