@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
-import { Box, Text, Link } from "@chakra-ui/react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../firebase.config";
 
+// Static URLs
 const STATIC_URLS = [
   "https://www.redskyadvancesolutions.com/",
   "https://www.redskyadvancesolutions.com/about-us",
@@ -26,6 +25,7 @@ const STATIC_URLS = [
   "https://redskyadvancesolutions.com/industrial-training/digital-marketing",
 ];
 
+// Fetch URLs from Firebase
 const fetchUrls = async () => {
   try {
     const querySnapshot = await getDocs(collection(db, "blogData"));
@@ -44,62 +44,30 @@ const fetchUrls = async () => {
   }
 };
 
-const Sitemap = () => {
-  const [urls, setUrls] = useState([]);
+const Sitemap = ({ urls }) => {
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${urls
+    .map(
+      (url) => `
+  <url>
+    <loc>${url}</loc>
+  </url>`
+    )
+    .join("\n")}
+</urlset>`;
 
-  useEffect(() => {
-    const loadUrls = async () => {
-      const allUrls = await fetchUrls();
-      setUrls(allUrls);
-    };
-
-    loadUrls();
-  }, []);
-
-  return (
-    <Box
-      as="section"
-      bg="#1E1E1E"
-      color="#D4D4D4"
-      minHeight="100vh"
-      py={10}
-      px={6}
-      fontFamily="monospace"
-    >
-      <Text as="h1" fontSize="2xl" fontWeight="bold" color="#FFFFFF" mb={4}>
-        Sitemap - Redsky Advance Solutions
-      </Text>
-
-      <Box mb={2} color="#00BFFF">
-        &lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
-      </Box>
-
-      <Box ml={4}>
-        {urls.map((url, index) => (
-          <Box key={index}>
-            <Box color="#00BFFF">&lt;url&gt;</Box>
-            <Box ml={4} color="#00BFFF">
-              &lt;loc&gt;
-              <Link
-                href={url}
-                isExternal
-                _hover={{ color: "white", transform: "scale(1.05)" }}
-                _active={{ color: "#FF6347" }}
-              >
-                {url}
-              </Link>
-              &lt;/loc&gt;
-            </Box>
-            <Box color="#00BFFF">&lt;/url&gt;</Box>
-          </Box>
-        ))}
-      </Box>
-
-      <Box mt={4} color="#00BFFF">
-        &lt;/urlset&gt;
-      </Box>
-    </Box>
-  );
+  return xml;
 };
+
+export async function getStaticProps() {
+  const urls = await fetchUrls();
+
+  return {
+    props: {
+      urls,
+    },
+  };
+}
 
 export default Sitemap;
