@@ -2,6 +2,9 @@
   "name": "redskyatech",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "v17.9.1"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
