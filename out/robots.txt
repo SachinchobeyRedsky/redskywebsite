@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.redskyadvancesolutions.com/
-
-# Sitemaps
-Sitemap: https://www.redskyadvancesolutions.com/sitemap.xml
